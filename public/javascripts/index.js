@@ -5,11 +5,22 @@ const description = document.querySelector('#description')
 
 
 const card = (dataLoad)=>{
+    console.log(dataLoad._id);
     const div = document.createElement('div')
     div.innerHTML = `
-        <h1>${dataLoad.title}</h1>
-        <p>${dataLoad.description}</p>
+        <div>
+            <h1>${dataLoad.title}</h1>
+            <p>${dataLoad.description}</p>
+            <button data-id=${dataLoad._id} id="delete">Delete</button>
+        </div>
     `
+
+    const Delete = div.querySelector('#delete')
+
+    Delete.addEventListener('click',()=>{
+        console.log(Delete.dataset.id);
+        // axios.delete('')
+    })
 
     return div
 }
